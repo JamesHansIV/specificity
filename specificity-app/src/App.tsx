@@ -131,7 +131,7 @@ function App() {
                 {hostSpecificity && (
                     <div>
                         <p>Host Rank: {hostSpecificity.host_rank}</p>
-                        <p>Host Index: {hostSpecificity.host_index.toFixed(4)}</p>
+                        <p>Host Index: {hostSpecificity.host_index.toFixed(8)}</p>
                     </div>
                 )}
             </div>
