@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 
 import styles from './App.module.css';
 
+const SPECIES_MAX: number = 1000;
+const GENERA_MAX: number = 500;
+const FAMILIES_MAX: number = 150;
+const ORDERS_MAX: number = 75;
+const CLASSES_MAX: number = 5;
+
 interface SpecificityInput {
     species: number;
     genera: number;
@@ -15,6 +21,8 @@ interface SpecificityOutput {
     host_index: number;
 }
 
+interface SpecificityResult extends SpecificityInput, SpecificityOutput { };
+
 function App() {
     const [species, setSpecies] = useState<number>(1);
     const [genera, setGenera] = useState<number>(1);
@@ -22,7 +30,7 @@ function App() {
     const [orders, setOrders] = useState<number>(1);
     const [classes, setClasses] = useState<number>(1);
 
-    const [hostSpecificity, setHostSpecificity] = useState<SpecificityOutput>();
+    const [resultsArr, setResultsArr] = useState<SpecificityResult[]>([]);
 
     const [isInputValid, setIsInputValid] = useState<boolean>(true);
 
@@ -48,7 +56,13 @@ function App() {
                 console.log("result", result);
                 console.log("Host Rank:", result.host_rank);
                 console.log("Host Index:", result.host_index);
-                setHostSpecificity(result);
+
+                const combinedResult: SpecificityResult = {
+                    ...input,
+                    ...result
+                }
+
+                setResultsArr(prev => [combinedResult, ...prev].slice(0, 50));
             })
             .catch(console.error);
     };
@@ -72,73 +86,142 @@ function App() {
     }
 
     return (
-        <>
-            <div className={styles.headerContainer}>
-                <h1>Host Specificity</h1>
-            </div>
-            <div className={styles.contentContainer}>
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        Species: 
-                        <input type="number"
-                            value={species} onChange={e => setSpecies(Number(e.target.value))}
-                            min={1} max={1000}
-                        />
-                    </label>
-                    <br />
+        <div className={styles.appContainer}>
+            <div className={styles.appContent}>
+                <div className={styles.headerContainer}>
+                    <h3>Host Specificity Index</h3>
+                </div>
+                <div className={styles.aboutContainer}>
+                    <p className={styles.aboutContent}>
+                        This site calculates an index of host specificity for parasites based on the number of species, genera, families, orders, and classes in which a species is found. It incorporates the hierarchical information about host distribution included in the Linnean hierarchy, but it is not explcitly tree based. See Caira et al. (in press) for discussion and justification and for examples of the ways in which it can be used.
+                    </p>
+                    <p className={styles.aboutContent}>
+                        Specificity was originally created as a desktop application in 2002 by K. E. Holsinger, and has been adapted for web use by J. Hanselman.
+                    </p>
+                    {/* <p className={styles.aboutContent}>
+                        <strong>Reference: </strong>
+                        Caira, J. N., K. Jensen, and K. E. Holsinger. 2003. On a new index of host specificity. In Taxonomy, ecology, and evolution of metazoan parasites, eds. C. Combes and
+                        J. Jourdane, vol. 1, pp. 161–201. Presses Universitaire de Perpignan, Perpignan.
+                    </p> */}
+                </div>
 
-                    <label>
-                        Genera: 
-                        <input type="number"
-                            value={genera} onChange={e => setGenera(Number(e.target.value))}
-                            min={1} max={500}
-                        />
-                    </label>
-                    <br />
+                <div className={styles.contentContainer}>
+                    <div className={styles.formContainer}>
+                        <h5 className={styles.subHeader}>Calculate Index</h5>
+                        <form onSubmit={handleSubmit}>
+                            <div className={styles.field}>
+                                <label htmlFor="number_of_species">Species:</label>
+                                <input
+                                    type="number" id="number_of_species"
+                                    value={species}
+                                    onChange={e => setSpecies(Math.min(Number(e.target.value), SPECIES_MAX))}
+                                    min={1} max={SPECIES_MAX}
+                                />
+                            </div>
+                            <div className={styles.field}>
+                                <label htmlFor="number_of_genera">Genera:</label>
+                                <input
+                                    type="number" id="number_of_genera"
+                                    value={genera}
+                                    onChange={e => setGenera(Math.min(Number(e.target.value), GENERA_MAX))}
+                                    min={1} max={GENERA_MAX}
+                                />
+                            </div>
+                            <div className={styles.field}>
+                                <label htmlFor="number_of_families">Families:</label>
+                                <input
+                                    type="number" id="number_of_families"
+                                    value={families}
+                                    onChange={e => setFamilies(Math.min(Number(e.target.value), FAMILIES_MAX))}
+                                    min={1} max={FAMILIES_MAX}
+                                />
+                            </div>
+                            <div className={styles.field}>
+                                <label htmlFor="number_of_orders">Orders:</label>
+                                <input
+                                    type="number" id="number_of_orders"
+                                    value={orders}
+                                    onChange={e => setOrders(Math.min(Number(e.target.value), ORDERS_MAX))}
+                                    min={1} max={ORDERS_MAX}
+                                />
+                            </div>
+                            <div className={styles.field}>
+                                <label htmlFor="number_of_classes">Classes:</label>
+                                <input
+                                    type="number" id="number_of_classes"
+                                    value={classes}
+                                    onChange={e => setClasses(Math.min(Number(e.target.value), CLASSES_MAX))}
+                                    min={1} max={CLASSES_MAX}
+                                />
+                            </div>
 
-                    <label>
-                        Families:
-                        <input type="number"
-                            value={families} onChange={e => setFamilies(Number(e.target.value))}
-                            min={1} max={150}
-                        />
-                    </label>
-                    <br />
+                            {!isInputValid && (
+                                <p style={{ color: "red" }}>Invalid Input Values!</p>
+                            )}
 
-                    <label>
-                        Orders:
-                        <input type="number"
-                            value={orders} onChange={e => setOrders(Number(e.target.value))}
-                            min={1} max={75}
-                        />
-                    </label>
-                    <br />
-
-                    <label>
-                        Classes:
-                        <input type="number"
-                            value={classes} onChange={e => setClasses(Number(e.target.value))}
-                            min={1} max={5}
-                        />
-                    </label>
-                    <br />
-                    <br />
-                    <input type="submit" value="Submit" />
-                    {!isInputValid && (
-                        <p style={{color:"red"}}>Invalid Input Values!</p>
-                    )}
-                </form>
-                {hostSpecificity && (
-                    <div>
-                        <p>Host Rank: {hostSpecificity.host_rank}</p>
-                        <p>Host Index: {hostSpecificity.host_index.toFixed(8)}</p>
+                            <input className={styles.submitButton}
+                                type="submit" value="Calculate"
+                            />
+                        </form>
                     </div>
-                )}
-            </div>
-            <div className={styles.footerContainer}>
 
+                    <div className={styles.resultsContainer}>
+                        <h5 className={styles.subHeader}>Results</h5>
+                        <div className={styles.resultsTableContainer}>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>No. species</th>
+                                        <th>No. genera</th>
+                                        <th>No. families</th>
+                                        <th>No. orders</th>
+                                        <th>No. classes</th>
+                                        <th>Rank</th>
+                                        <th>Index <i>(HS)</i></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {resultsArr.map((r, i) => (
+                                        <tr key={i}>
+                                            <td>{r.species}</td>
+                                            <td>{r.genera}</td>
+                                            <td>{r.families}</td>
+                                            <td>{r.orders}</td>
+                                            <td>{r.classes}</td>
+                                            <td>{r.host_rank}</td>
+                                            <td>{r.host_index.toFixed(8)}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div className={styles.referenceContainer}>
+                        <h5 className={styles.subHeader}>Reference</h5>
+                        <div className={styles.referenceContentContainer}>
+                            <p>
+                                Caira, J. N., K. Jensen, and K. E. Holsinger. 2003. On a new index of host specificity. In Taxonomy, ecology, and evolution of metazoan parasites, eds. C. Combes and J. Jourdane, vol. 1, pp. 161–201. Presses Universitaire de Perpignan, Perpignan.
+                            </p>
+                            <a className={styles.pdfButtonWrapper} 
+                            href={"/CairaJensen&Holsinger2003.pdf"} 
+                            target='_blank'>
+                                <div className={styles.pdfButton}>
+                                    View PDF
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className={styles.otherTapewormToolsContainer}></div>
+
+                <div className={styles.footerContainer}>
+
+                </div>
             </div>
-        </>
+        </div>
     )
 }
 

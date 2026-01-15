@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia%20Sans:700|Sofia%20Sans:400');
+
+body {
+    font-family: 'Sofia Sans';
+    font-weight: 400;
+    background: var(--background-100);
+    margin: 0
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Sofia Sans';
+    font-weight: 700;
+}
+
+html {
+    font-size: 100%;
+}
+
+/* 16px */
+
+h1 {
+    font-size: 4.210rem;
+    /* 67.36px */
+}
+
+h2 {
+    font-size: 3.158rem;
+    /* 50.56px */
+}
+
+h3 {
+    font-size: 2.369rem;
+    /* 37.92px */
+}
+
+h4 {
+    font-size: 1.777rem;
+    /* 28.48px */
+}
+
+h5 {
+    font-size: 1.333rem;
+    /* 21.28px */
+}
+
+small {
+    font-size: 0.750rem;
+    /* 12px */
+}
+
+:root {
+    --text-50: #ecf8f8;
+    --text-100: #daf1f1;
+    --text-200: #b4e4e4;
+    --text-300: #8fd6d6;
+    --text-400: #69c9c9;
+    --text-500: #44bbbb;
+    --text-600: #369696;
+    --text-700: #297070;
+    --text-800: #1b4b4b;
+    --text-900: #0e2525;
+    --text-950: #071313;
+
+    --background-50: #ecf7f9;
+    --background-100: #d9f0f2;
+    --background-200: #b3e0e6;
+    --background-300: #8cd1d9;
+    --background-400: #66c2cc;
+    --background-500: #40b2bf;
+    --background-600: #338f99;
+    --background-700: #266b73;
+    --background-800: #19474d;
+    --background-900: #0d2426;
+    --background-950: #061213;
+
+    --primary-50: #eef6f7;
+    --primary-100: #dcedef;
+    --primary-200: #b9dbdf;
+    --primary-300: #96c9cf;
+    --primary-400: #73b7bf;
+    --primary-500: #50a5af;
+    --primary-600: #40848c;
+    --primary-700: #306369;
+    --primary-800: #204246;
+    --primary-900: #102123;
+    --primary-950: #081111;
+
+    --secondary-50: #ecedf8;
+    --secondary-100: #d9dbf2;
+    --secondary-200: #b3b6e5;
+    --secondary-300: #8d92d8;
+    --secondary-400: #676ecb;
+    --secondary-500: #4149be;
+    --secondary-600: #343b98;
+    --secondary-700: #272c72;
+    --secondary-800: #1a1d4c;
+    --secondary-900: #0d0f26;
+    --secondary-950: #070713;
+
+    --accent-50: #eeecf8;
+    --accent-100: #ded9f2;
+    --accent-200: #bcb4e4;
+    --accent-300: #9b8ed7;
+    --accent-400: #7a68ca;
+    --accent-500: #5942bd;
+    --accent-600: #473597;
+    --accent-700: #352871;
+    --accent-800: #231b4b;
+    --accent-900: #120d26;
+    --accent-950: #090713;
+}

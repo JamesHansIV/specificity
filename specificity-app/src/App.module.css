@@ -1,3 +1,174 @@
-.headerContainer {
-  
+.aboutContainer {
+    padding: 1rem;
+    border-radius: 1rem;
+    background: var(--primary-300);
 }
+
+.aboutContainer p+p {
+    margin-top: 0.25rem;
+}
+
+.aboutContent {
+    text-align: justify;
+    line-height: 1.5rem;
+    margin: 0
+}
+
+.appContainer {
+    width: 100vw;
+}
+
+.appContent {
+    min-width: 400px;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    height: 22rem;
+    flex-wrap: wrap;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.field label {
+    width: 4rem;
+}
+
+.field input {
+    width: 3.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.formContainer {
+    background: var(--secondary-200);
+    width: 10rem;
+    flex: 0 0 auto;
+    /* height: 20rem; */
+}
+
+input[type="number"] {
+    border: none;
+    background: var(--secondary-100);
+    padding: 0.25rem;
+}
+
+input[type="number"]:focus {
+    outline: 2px solid var(--accent-500);
+}
+
+.pdfButton {
+    padding: 1rem;
+    background: var(--primary-400);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: black;
+    padding: 0.5rem;
+
+}
+
+.pdfButtonWrapper {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.referenceContainer {
+    background: var(--primary-200);
+    flex: 1;
+    min-width: 10rem;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.referenceContentContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.referenceContentContainer p {
+    margin: 0;
+    flex: 1;
+}
+
+.referenceContainer,
+.resultsContainer,
+.formContainer {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.resultsContainer {
+    background: var(--secondary-100);
+}
+
+.resultsTableContainer {
+    max-height: 15rem;
+    overflow-y: scroll;
+}
+
+.subHeader {
+    margin: 0 0 1rem 0;
+}
+
+.submitButton {
+    border: none;
+    border-radius: 0.5rem;
+    border-color: var(--accent-500);
+    font-size: 1rem;
+    background: var(--accent-500);
+    color: white;
+    padding: 0.5rem;
+    width: 100%;
+    margin-top: auto;
+}
+
+.submitButton:hover {
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table td,
+table th {
+    padding: 0.5rem;
+    border: none;
+}
+
+table td {
+    padding-bottom: 0;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--secondary-200);
+}
+
+/* .headerContainer {
+  background-color: var(--header-background);
+} */
