@@ -204,7 +204,7 @@ function App() {
                                 Caira, J. N., K. Jensen, and K. E. Holsinger. 2003. On a new index of host specificity. In Taxonomy, ecology, and evolution of metazoan parasites, eds. C. Combes and J. Jourdane, vol. 1, pp. 161–201. Presses Universitaire de Perpignan, Perpignan.
                             </p>
                             <a className={styles.pdfButtonWrapper} 
-                            href={"/CairaJensen&Holsinger2003.pdf"} 
+                            href={"/CairaJensenHolsinger2003.pdf"} 
                             target='_blank'>
                                 <div className={styles.pdfButton}>
                                     View PDF
