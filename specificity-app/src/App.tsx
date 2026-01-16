@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 
 import styles from './App.module.css';
 
+import tapeworms_unlocked_logo from './assets/tapeworms_unlocked_logo.png';
+import gcd_logo from './assets/gcd_logo.png';
+
 const SPECIES_MAX: number = 1000;
 const GENERA_MAX: number = 500;
 const FAMILIES_MAX: number = 150;
@@ -89,7 +92,7 @@ function App() {
         <div className={styles.appContainer}>
             <div className={styles.appContent}>
                 <div className={styles.headerContainer}>
-                    <h3>Host Specificity Index</h3>
+                    <h3 className={styles.headerContent}>Host Specificity Index</h3>
                 </div>
                 <div className={styles.aboutContainer}>
                     <p className={styles.aboutContent}>
@@ -98,11 +101,6 @@ function App() {
                     <p className={styles.aboutContent}>
                         Specificity was originally created as a desktop application in 2002 by K. E. Holsinger, and has been adapted for web use by J. Hanselman.
                     </p>
-                    {/* <p className={styles.aboutContent}>
-                        <strong>Reference: </strong>
-                        Caira, J. N., K. Jensen, and K. E. Holsinger. 2003. On a new index of host specificity. In Taxonomy, ecology, and evolution of metazoan parasites, eds. C. Combes and
-                        J. Jourdane, vol. 1, pp. 161–201. Presses Universitaire de Perpignan, Perpignan.
-                    </p> */}
                 </div>
 
                 <div className={styles.contentContainer}>
@@ -203,9 +201,9 @@ function App() {
                             <p>
                                 Caira, J. N., K. Jensen, and K. E. Holsinger. 2003. On a new index of host specificity. In Taxonomy, ecology, and evolution of metazoan parasites, eds. C. Combes and J. Jourdane, vol. 1, pp. 161–201. Presses Universitaire de Perpignan, Perpignan.
                             </p>
-                            <a className={styles.pdfButtonWrapper} 
-                            href={"/CairaJensenHolsinger2003.pdf"} 
-                            target='_blank'>
+                            <a className={styles.pdfButtonWrapper}
+                                href={"/CairaJensenHolsinger2003.pdf"}
+                                target='_blank'>
                                 <div className={styles.pdfButton}>
                                     View PDF
                                 </div>
@@ -213,12 +211,19 @@ function App() {
                         </div>
                     </div>
                 </div>
-
-
-                <div className={styles.otherTapewormToolsContainer}></div>
-
                 <div className={styles.footerContainer}>
-
+                    <a
+                        className={styles.footerLinkContainer}
+                        href={"https://draft.tapewormscynder.eeb.uconn.edu/"}>
+                        <img src={gcd_logo} className={styles.footerLinkImg} />
+                        <span className={styles.footerLink}>Global Cestode Database</span>
+                    </a>
+                    <a
+                        className={styles.footerLinkContainer}
+                        href={"https://tapeworms-unlocked.info/"}>
+                        <span className={styles.footerLink}>Tapeworms Unlocked</span>
+                        <img src={tapeworms_unlocked_logo} className={styles.footerLinkImg} />
+                    </a>
                 </div>
             </div>
         </div>
