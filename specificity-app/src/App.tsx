@@ -99,7 +99,7 @@ function App() {
                         This site calculates an index of host specificity for parasites based on the number of species, genera, families, orders, and classes in which a species is found. It incorporates the hierarchical information about host distribution included in the Linnean hierarchy, but it is not explcitly tree based. See Caira et al. (in press) for discussion and justification and for examples of the ways in which it can be used.
                     </p>
                     <p className={styles.aboutContent}>
-                        Specificity was originally created as a desktop application in 2002 by K. E. Holsinger, and has been adapted for web use by J. Hanselman.
+                        Specificity was originally created as a desktop application in 2002 by K. E. Holsinger (University of Connecticut), and has been adapted for web use by J. Hanselman.
                     </p>
                 </div>
 
