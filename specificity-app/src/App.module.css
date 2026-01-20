@@ -1,7 +1,7 @@
 .aboutContainer {
     padding: 1rem;
     border-radius: 1rem;
-    background: var(--primary-300);
+    background: var(--primary-200);
 }
 
 .aboutContainer p+p {
@@ -64,9 +64,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--background-200);
+    /* background-color: var(--background-200); */
     padding: 1rem;
-    border-radius: 1rem;
+    border-top: 1px solid rgb(83, 83, 83);
+    /* border-top: 2px solid var(--background-200); */
+    /* border-radius: 1rem; */
     margin-top: auto;  
     margin-bottom: 2rem;
 }
@@ -84,14 +86,14 @@
     padding: 0.5rem;
     column-gap: 0.5rem;
     border-radius: 0.5rem;
-    background-color: var(--background-400);
+    background-color: var(--primary-200);
     color: black;
 }
 
 .footerLinkContainer:hover {
     cursor: pointer;
-    background-color: var(--background-600);
-    color: white;
+    background-color: var(--primary-300);
+    /* color: white; */
 }
 
 .footerLinkImg {
@@ -106,7 +108,7 @@ form {
 }
 
 .formContainer {
-    background: var(--secondary-200);
+    background: var(--secondary-100);
     width: 10rem;
     flex: 0 0 auto;
     /* height: 20rem; */
@@ -114,7 +116,7 @@ form {
 
 input[type="number"] {
     border: none;
-    background: var(--secondary-100);
+    background: var(--secondary-200);
     padding: 0.25rem;
 }
 
@@ -140,6 +142,7 @@ input[type="number"]:focus {
     text-decoration: none;
     text-align: center;
     display: block;
+    margin-top: 0.5rem;
 }
 
 .referenceContainer {
