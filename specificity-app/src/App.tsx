@@ -4,6 +4,7 @@ import styles from './App.module.css';
 
 import tapeworms_unlocked_logo from './assets/tapeworms_unlocked_logo.png';
 import gcd_logo from './assets/gcd_logo.png';
+import specificity_logo from './assets/specificity_logo.png';
 
 const SPECIES_MAX: number = 1000;
 const GENERA_MAX: number = 500;
@@ -92,6 +93,7 @@ function App() {
         <div className={styles.appContainer}>
             <div className={styles.appContent}>
                 <div className={styles.headerContainer}>
+                    <img className={styles.headerLogo} src={specificity_logo} />
                     <h3 className={styles.headerContent}>Host Specificity Index</h3>
                 </div>
                 <div className={styles.aboutContainer}>
