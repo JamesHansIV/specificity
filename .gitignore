@@ -3,4 +3,4 @@ dist
 *.spec
 *.r
 *.cpp
-# *.pdf
+*.pdf
