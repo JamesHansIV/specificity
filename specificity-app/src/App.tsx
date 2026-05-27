@@ -199,7 +199,7 @@ function App() {
 
                     <div className={styles.referenceContainer}>
                         <h5 className={styles.subHeader}>Reference</h5>
-                        <div className={styles.referenceContentContainer}>
+                        <div className={styles.aboutContent}>
                             <p>
                                 Caira, J. N., K. Jensen, and K. E. Holsinger. 2003. On a new index of host specificity. In Taxonomy, ecology, and evolution of metazoan parasites, eds. C. Combes and J. Jourdane, vol. 1, pp. 161–201. Presses Universitaire de Perpignan, Perpignan.
                             </p>
