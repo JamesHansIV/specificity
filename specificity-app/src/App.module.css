@@ -100,13 +100,13 @@
     padding: 0.5rem;
     column-gap: 0.5rem;
     border-radius: 0.5rem;
-    background-color: var(--primary-200);
+    /* background-color: var(--primary-200); */
     color: black;
 }
 
 .footerLinkContainer:hover {
     cursor: pointer;
-    background-color: var(--primary-300);
+    /* background-color: var(--primary-300); */
     /* color: white; */
 }
 
